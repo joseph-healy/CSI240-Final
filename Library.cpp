@@ -90,6 +90,11 @@ void Library::removeSong(Song s)
 	}
 }
 
+
+/*toString - returns a string representation of the library
+PRE: none
+POST: FCTVAL is a formatted string with data from every song in the library
+*/
 string Library::toString()
 {
 	string ret;
