@@ -90,13 +90,6 @@ void Library::removeSong(Song s)
 	}
 }
 
-<<<<<<< HEAD
-
-/*toString - returns a string representation of the library
-PRE: none
-POST: FCTVAL is a formatted string with data from every song in the library
-*/
-=======
 /*sort - sorts the library alphabetically by song name
 PRE: none
 POST: library is sorted A-Z by songname
@@ -147,6 +140,10 @@ void Library::swapNodes(LLNode* a, LLNode* b)
 }
 
 
+/*toString - returns a string representation of the library
+PRE: none
+POST: FCTVAL is a formatted string with data from every song in the library
+*/
 string Library::toString()
 {
 	string ret;
