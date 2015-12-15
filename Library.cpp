@@ -119,6 +119,18 @@ void Library::sort()
 	
 }
 
+/*swapNodes - swaps 2 adjacent nodes in the library
+PRE: a, and b are valid
+POST: a's position is now at b
+*/
+void Library::swapNodes(LLNode* a, LLNode* b)
+{
+	a->next = b->next;
+	b->prev = a->prev;
+	a->prev = b;
+	b->next = a;
+}
+
 string Library::toString()
 {
 	string ret;
