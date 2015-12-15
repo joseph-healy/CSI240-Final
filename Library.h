@@ -36,6 +36,12 @@ public:
 	//removes all songs from library
 	//void clearLibrary(); 
 		
+	//Sorts the list alpabetically by song name
+	void sort();
+
+	//Swaps two nodes in list
+	void swapNodes(LLNode* a, LLNode* b);
+
 	//returns a string representation of the library
 	string toString();
 

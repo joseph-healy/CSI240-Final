@@ -90,6 +90,35 @@ void Library::removeSong(Song s)
 	}
 }
 
+/*sort - sorts the library alphabetically by song name
+PRE: none
+POST: library is sorted A-Z by songname
+*/
+void Library::sort()
+{
+	bool swapped = true;
+	
+	if (head == NULL)
+	{
+		return;
+	}
+
+	while (swapped)
+	{
+		current = head;
+		swapped = false;
+		while (current->next != NULL)
+		{
+			if (current->data.getName() > current->next->data.getName())
+			{
+				swapNodes(current, current->next);
+				swapped = true;
+			}
+		}
+	}
+	
+}
+
 string Library::toString()
 {
 	string ret;
