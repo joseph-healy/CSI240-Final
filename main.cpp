@@ -14,22 +14,20 @@ using namespace std;
 int main()
 {
 	Song test("Antidote", "Travis Scott", "Rodeo", Song::Genres::HIPHOP, 2015);
-	cout << test.toString() << endl;
 	
-	Song test1("Antidote", "Travis Scott", "Rodeo", Song::Genres::HIPHOP, 2015);
+	Song test1("bntidote", "Travis Scott", "Rodeo", Song::Genres::HIPHOP, 2015);
 	
-	if (test == test1) cout << "TRUE" << endl;
-	else cout << "FALSE" << endl;
+	Song test2("aaa", "me", "test", Song::Genres::HIPHOP, 1969);
 
 	Library library;
 	library.addSong(test);
 	library.addSong(test1);
+	library.addSong(test2);
+
+	library.sort();
 
 	cout << library.toString() << endl;
-	cout << "==========================" << endl;
-	cout << "After removal:" << endl;
-	library.removeSong(test1);
-	cout << library.toString();
+
 
 
 	system("pause");

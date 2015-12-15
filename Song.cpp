@@ -49,7 +49,7 @@ POST: FCTVAL is a formatted string containing details on the song object
 string Song::toString()
 {
 	string space = "             ";
-	return name + "\nArtist: " + space.substr(0, space.length() - artist.length()) + artist
+	return "\n" + name + "\nArtist: " + space.substr(0, space.length() - artist.length()) + artist
 		+ "\nAlbum:  " + space.substr(0, space.length() - album.length()) + album
 		+ "\nGenre:  " + space.substr(0, space.length() - GENRE_NAMES[genre].length()) + GENRE_NAMES[genre]
 		+ "\nYear:   " + space.substr(0, space.length() - to_string(year).length()) + to_string(year);

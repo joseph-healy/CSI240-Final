@@ -90,19 +90,72 @@ void Library::removeSong(Song s)
 	}
 }
 
+<<<<<<< HEAD
 
 /*toString - returns a string representation of the library
 PRE: none
 POST: FCTVAL is a formatted string with data from every song in the library
 */
+=======
+/*sort - sorts the library alphabetically by song name
+PRE: none
+POST: library is sorted A-Z by songname
+*/
+void Library::sort()
+{
+	bool swapped = true;
+	
+	if (head == NULL)
+	{
+		return;
+	}
+
+	while (swapped)
+	{
+		current = head;
+		swapped = false;
+		while (current->next != NULL)
+		{
+			string currSong = current->data.getName();
+			string nextSong = current->next->data.getName();
+
+			//transform song titles to lowercase so that they can be compared, found this function at: https://notfaq.wordpress.com/2007/08/04/cc-convert-string-to-upperlower-case/ 
+			transform(currSong.begin(), currSong.end(), currSong.begin(), ::tolower);
+			transform(nextSong.begin(), nextSong.end(), nextSong.begin(), ::tolower);
+
+			if (currSong > nextSong)
+			{
+				swapNodes(current, current->next);
+				swapped = true;
+			}
+
+			current = current->next;
+		}
+	}
+	
+}
+
+/*swapNodes - swaps 2 nodes in the library
+PRE: a, and b are valid
+POST: node a now contains the data from node b, and vice versa
+*/
+void Library::swapNodes(LLNode* a, LLNode* b)
+{
+	Song junk = a->data;
+	a->data = b->data;
+	b->data = junk;
+}
+
+
 string Library::toString()
 {
 	string ret;
 	LLNode* temp = head;
 
-	while (temp->next != NULL)
+	while (temp != NULL)
 	{
 		ret.append(temp->data.toString());
+		temp = temp->next;
 	}
 	
 	return ret;
