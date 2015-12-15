@@ -8,6 +8,8 @@ Library Class
 #define __LIBRARY_
 
 #include "song.h"
+#include <algorithm>
+
 
 using namespace std;
 

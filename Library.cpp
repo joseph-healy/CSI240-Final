@@ -109,26 +109,34 @@ void Library::sort()
 		swapped = false;
 		while (current->next != NULL)
 		{
-			if (current->data.getName() > current->next->data.getName())
+			string currSong = current->data.getName();
+			string nextSong = current->next->data.getName();
+
+			//transform song titles to lowercase so that they can be compared, found this function at: https://notfaq.wordpress.com/2007/08/04/cc-convert-string-to-upperlower-case/ 
+			transform(currSong.begin(), currSong.end(), currSong.begin(), ::tolower);
+			transform(nextSong.begin(), nextSong.end(), nextSong.begin(), ::tolower);
+
+			if (currSong > nextSong)
 			{
 				swapNodes(current, current->next);
 				swapped = true;
 			}
+
+			current = current->next;
 		}
 	}
 	
 }
 
-/*swapNodes - swaps 2 adjacent nodes in the library
+/*swapNodes - swaps 2 nodes in the library
 PRE: a, and b are valid
-POST: a's position is now at b
+POST: node a now contains the data from node b, and vice versa
 */
 void Library::swapNodes(LLNode* a, LLNode* b)
 {
-	a->next = b->next;
-	b->prev = a->prev;
-	a->prev = b;
-	b->next = a;
+	Song junk = a->data;
+	a->data = b->data;
+	b->data = junk;
 }
 
 string Library::toString()
@@ -136,9 +144,10 @@ string Library::toString()
 	string ret;
 	LLNode* temp = head;
 
-	while (temp->next != NULL)
+	while (temp != NULL)
 	{
 		ret.append(temp->data.toString());
+		temp = temp->next;
 	}
 	
 	return ret;
