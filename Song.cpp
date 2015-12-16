@@ -68,6 +68,10 @@ string Song::toString()
 		+ "\nYear:   " + space.substr(0, space.length() - to_string(year).length()) + to_string(year);
 }
 
+/*Comparisson operator allows user to compare two songs
+PRE: other is valid
+POST: returns true if attributes of this object are equal to the attributes of other
+*/
 bool Song::operator==(const Song &other)
 {
 	return (this->name == other.name && this->album == other.album && this->artist == other.artist && this->genre == other.genre && this->year == other.year);
