@@ -38,8 +38,15 @@ public:
 	//public member functions
 	
 	//Constructors
-	Song(); //default constructor
-	Song(string n, string a, string al, Genres g, int y); //value constructor, allows user to pass in a name, artist, album, genre, length and year
+
+	//default constructor
+	Song();
+	
+	//value constructor, allows user to pass in a name, artist, album, genre, length and year
+	Song(string n, string a, string al, Genres g, int y);
+	
+	//copy constructor
+	Song(const Song &other);
 
 
 	//toString - returns a string representation of the Song object

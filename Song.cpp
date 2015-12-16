@@ -33,13 +33,26 @@ POST:
 	genre set to g,
 	year set to y
 */
-Song::Song(string n, string a, string al, Genres g,		int y)
+Song::Song(string n, string a, string al, Genres g,	int y)
 {
 	this->name = n;
 	this->artist = a;
 	this->genre = g;
 	this->album = al;
 	this->year = y;
+}
+
+/*copy constructor - allows user to create a copy of a song
+PRE: other is valid
+POST: new Song created, as a cop of other
+*/
+Song::Song(const Song& other)
+{
+	this->name = other.name;
+	this->artist = other.artist;
+	this->genre = other.genre;
+	this->album = other.album;
+	this->year = other.year;
 }
 
 /*toString - returns a strign representation of the song object
